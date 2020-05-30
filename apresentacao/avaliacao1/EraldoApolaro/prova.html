@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/stylesheet.css">
+
+    <title>Prova 1</title>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="a">
+            <img src="img/logo_fatec.jpg" alt="">
+            Programação Web
+        </div>
+        <div class="b">
+            Prova
+            <img src="img/logo_cps.jpg" alt="">
+        </div>
+        <div class="box sidebar">
+
+            <div class="c">
+                <nav>
+                    <h2>Atividades Menu</h2>
+                    <div class="menu">
+                        <a href wm-nav="paginas/intro.html">HTML Introduction</a> <br>
+                        <a href wm-nav="paginas/id.html">HTML Id</a> <br>
+                        <a href wm-nav="paginas/class.html">HTML Class</a> <br>
+                        <a href wm-nav="paginas/forms.html">HTML Forms</a> <br>
+                        <a href wm-nav="paginas/introduction.html">CSS Introduction</a> <br>
+                        <a href wm-nav="paginas/borders.html">CSS Borders</a> <br>
+                        <a href wm-nav="paginas/margins.html">CSS Margins</a> <br>
+                        <a href wm-nav="paginas/padding.html">CSS Padding</a> <br>
+                    </div>
+                    <h2>Atividades Tabela</h2>
+                    <div class="menu">
+                        <a href wm-nav="paginas/lista.html">Lista de Produtos</a> <br>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <div class="box content" id="conteudo">
+            <div class="d">
+                <div class="pagum">
+                    Linguagens
+                    <img src="img/div_conteudo.jpg" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="e">
+            Fatec Taquaritinga <br> <br>
+            Av. Dr. Flávio Henrique Lemos, 585 Portal Itamacaracá, Taquaritinga - SP CEP: 15906-522
+        </div>
+    </div>
+
+
+    <script>
+        document.querySelectorAll('[wm-nav]').forEach(link => {
+            const conteudo = document.getElementById('conteudo')
+
+            link.onclick = function (e) {
+                e.preventDefault()
+                fetch(link.getAttribute('wm-nav'))
+                    .then(resp => resp.text())
+                    .then(html => conteudo.innerHTML = html)
+            }
+        })
+    </script>
+
+</body>
+
+</html>
